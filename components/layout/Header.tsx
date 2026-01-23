@@ -56,7 +56,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden flex items-center justify-center size-10 rounded-lg hover:bg-black/5"
+          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-black/5"
           aria-label="Toggle menu"
         >
           {open ? <X size={26} /> : <Menu size={26} />}
@@ -66,42 +66,40 @@ export default function Header() {
       {/* MOBILE MENU */}
       {open && (
         <>
-          {/* Dark overlay */}
+          {/* Optional dark overlay */}
           <div
             className="fixed inset-0 bg-black/30 z-40"
             onClick={() => setOpen(false)}
           />
 
-          {/* Menu */}
-          <div className="md:hidden fixed inset-0 top-20 bg-white z-50 animate-slideDown">
-            <nav className="flex flex-col px-6 pt-6 gap-6">
-              <MobileLink href="/community" onClick={() => setOpen(false)}>
-                Community
-              </MobileLink>
-              <MobileLink href="/articles" onClick={() => setOpen(false)}>
-                Articles & Guides
-              </MobileLink>
-              <MobileLink href="/about" onClick={() => setOpen(false)}>
-                About
-              </MobileLink>
-              <MobileLink href="/migration" onClick={() => setOpen(false)}>
-                Migration Form
+          {/* Solid Menu */}
+          <div className="md:hidden fixed inset-0 top-20 z-50 bg-white flex flex-col px-6 pt-6 gap-6 overflow-y-auto">
+            <MobileLink href="/community" onClick={() => setOpen(false)}>
+              Community
+            </MobileLink>
+            <MobileLink href="/articles" onClick={() => setOpen(false)}>
+              Articles & Guides
+            </MobileLink>
+            <MobileLink href="/about" onClick={() => setOpen(false)}>
+              About
+            </MobileLink>
+            <MobileLink href="/migration" onClick={() => setOpen(false)}>
+              Migration Form
+            </MobileLink>
+
+            <div className="border-t border-gray-100 pt-6 flex flex-col gap-4">
+              <MobileLink href="/login" onClick={() => setOpen(false)}>
+                Log In
               </MobileLink>
 
-              <div className="border-t border-gray-100 pt-6 flex flex-col gap-4">
-                <MobileLink href="/login" onClick={() => setOpen(false)}>
-                  Log In
-                </MobileLink>
-
-                <Link
-                  href="/register"
-                  onClick={() => setOpen(false)}
-                  className="bg-[#0d94af] text-white font-bold text-center py-3 rounded-xl"
-                >
-                  Sign Up
-                </Link>
-              </div>
-            </nav>
+              <Link
+                href="/register"
+                onClick={() => setOpen(false)}
+                className="bg-[#0d94af] text-white font-bold text-center py-3 rounded-xl"
+              >
+                Sign Up
+              </Link>
+            </div>
           </div>
         </>
       )}
@@ -110,14 +108,7 @@ export default function Header() {
 }
 
 /* ================= HELPERS ================= */
-
-function NavLink({
-  href,
-  children,
-}: {
-  href: string
-  children: React.ReactNode
-}) {
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
