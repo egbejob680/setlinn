@@ -65,15 +65,14 @@ export default function Header() {
       {/* MOBILE MENU */}
       {open && (
         <>
-          {/* Optional dark overlay */}
+          {/* Dark overlay */}
           <div
             className="fixed inset-0 bg-black/30 z-40"
             onClick={() => setOpen(false)}
           />
 
-          {/* Solid Menu */}
-          {/* Solid Menu */}
-          <div className="md:hidden fixed inset-x-0 top-20 bottom-0 z-50 bg-white flex flex-col px-6 pt-6 gap-6 overflow-y-auto">
+          {/* Mobile Menu */}
+          <div className="md:hidden fixed inset-x-0 top-20 bottom-0 z-50 bg-[#0d94af] text-white flex flex-col px-6 pt-6 gap-6 overflow-y-auto transition-transform duration-300">
             <MobileLink href="/community" onClick={() => setOpen(false)}>
               Community
             </MobileLink>
@@ -87,7 +86,7 @@ export default function Header() {
               Migration Form
             </MobileLink>
 
-            <div className="border-t border-gray-100 pt-6 flex flex-col gap-4">
+            <div className="border-t border-white/40 pt-6 flex flex-col gap-4">
               <MobileLink href="/login" onClick={() => setOpen(false)}>
                 Log In
               </MobileLink>
@@ -95,7 +94,7 @@ export default function Header() {
               <Link
                 href="/register"
                 onClick={() => setOpen(false)}
-                className="bg-[#0d94af] text-white font-bold text-center py-3 rounded-xl"
+                className="bg-white text-[#0d94af] font-bold text-center py-3 rounded-xl"
               >
                 Sign Up
               </Link>
@@ -135,7 +134,7 @@ function MobileLink({
     <Link
       href={href}
       onClick={onClick}
-      className="text-lg font-semibold text-[#111718]"
+      className="text-lg font-semibold text-white"
     >
       {children}
     </Link>
