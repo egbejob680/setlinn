@@ -1,0 +1,5 @@
+export const PRIMARY_COLOR = "#0d94af"
+export const BG_LIGHT = "#f6f8f8"
+export const TEXT_PRIMARY = "#111718"
+export const TEXT_MUTED = "#618389"
+export const BORDER_COLOR = "#dbe4e6"
