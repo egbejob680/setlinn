@@ -17,6 +17,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur border-b border-[#dbe4e6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="flex items-center justify-center bg-[#0d94af] rounded-lg p-1.5 text-white">
@@ -62,46 +63,40 @@ export default function Header() {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
-      {open && (
-        <>
-          {/* Dark overlay */}
-          <div
-            className="fixed inset-0 bg-black/30 z-40"
+      {/* MOBILE DROPDOWN */}
+      <div
+        className={`md:hidden fixed top-20 left-0 right-0 z-50 bg-[#0d94af] text-white rounded-b-3xl shadow-lg overflow-hidden transition-all duration-300 ${
+          open ? "max-h-100 opacity-100 py-6" : "max-h-0 opacity-0 py-0"
+        }`}
+      >
+        <nav className="flex flex-col px-6 gap-6">
+          <MobileLink href="/community" onClick={() => setOpen(false)}>
+            Community
+          </MobileLink>
+          <MobileLink href="/articles" onClick={() => setOpen(false)}>
+            Articles & Guides
+          </MobileLink>
+          <MobileLink href="/about" onClick={() => setOpen(false)}>
+            About
+          </MobileLink>
+          <MobileLink href="/migration" onClick={() => setOpen(false)}>
+            Migration Form
+          </MobileLink>
+        </nav>
+
+        <div className="border-t border-white/40 mt-6 pt-6 flex flex-col gap-4 px-6">
+          <MobileLink href="/login" onClick={() => setOpen(false)}>
+            Log In
+          </MobileLink>
+          <Link
+            href="/register"
             onClick={() => setOpen(false)}
-          />
-
-          {/* Mobile Menu */}
-          <div className="md:hidden fixed inset-0 top-20 z-50 bg-[#0d94af] text-white flex flex-col px-6 pt-6 pb-6 overflow-y-auto h-[calc(100vh-5rem)]">
-            <MobileLink href="/community" onClick={() => setOpen(false)}>
-              Community
-            </MobileLink>
-            <MobileLink href="/articles" onClick={() => setOpen(false)}>
-              Articles & Guides
-            </MobileLink>
-            <MobileLink href="/about" onClick={() => setOpen(false)}>
-              About
-            </MobileLink>
-            <MobileLink href="/migration" onClick={() => setOpen(false)}>
-              Migration Form
-            </MobileLink>
-
-            <div className="border-t border-white/40 pt-6 flex flex-col gap-4 mt-auto">
-              <MobileLink href="/login" onClick={() => setOpen(false)}>
-                Log In
-              </MobileLink>
-
-              <Link
-                href="/register"
-                onClick={() => setOpen(false)}
-                className="bg-white text-[#0d94af] font-bold text-center py-3 rounded-xl"
-              >
-                Sign Up
-              </Link>
-            </div>
-          </div>
-        </>
-      )}
+            className="bg-white text-[#0d94af] font-bold text-center py-3 rounded-xl"
+          >
+            Sign Up
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }
