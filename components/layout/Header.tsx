@@ -1,56 +1,43 @@
+"use client"
+
 import Link from "next/link"
+import { useState, useEffect } from "react"
+import { Menu, X, Compass } from "lucide-react"
 
 export default function Header() {
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto"
+  }, [open])
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-[#dbe4e6]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur border-b border-[#dbe4e6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
-        
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="flex items-center justify-center bg-[#0d94af] rounded-lg p-1.5 text-white">
-            <span className="material-symbols-outlined text-[24px]!">
-              explore
-            </span>
+            <Compass size={22} />
           </div>
           <h2 className="text-[#111718] text-xl font-extrabold tracking-tight">
             Setlinn
           </h2>
         </Link>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-10">
-          <Link
-            href="/community"
-            className="text-sm font-semibold hover:text-[#0d94af]"
-          >
-            Community
-          </Link>
-
-          <Link
-            href="/articles"
-            className="text-sm font-semibold hover:text-[#0d94af]"
-          >
-            Articles & Guides
-          </Link>
-          <Link
-            href="/about"
-            className="text-sm font-semibold hover:text-[#0d94af]"
-          >
-           About
-          </Link>
-          <Link
-            href="/migration"
-            className="text-sm font-semibold hover:text-[#0d94af]"
-          >
-           Migration Form
-          </Link>
+          <NavLink href="/community">Community</NavLink>
+          <NavLink href="/articles">Articles & Guides</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/migration">Migration Form</NavLink>
         </nav>
 
-        {/* Actions */}
-        <div className="flex items-center gap-4">
+        {/* Desktop Actions */}
+        <div className="hidden sm:flex items-center gap-4">
           <Link
             href="/login"
-            className="hidden sm:flex text-sm font-bold px-4 py-2 hover:bg-black/5 rounded-lg"
+            className="text-sm font-bold px-4 py-2 hover:bg-black/5 rounded-lg"
           >
             Log In
           </Link>
@@ -62,7 +49,89 @@ export default function Header() {
             Sign Up
           </Link>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden flex items-center justify-center size-10 rounded-lg hover:bg-black/5"
+          aria-label="Toggle menu"
+        >
+          {open ? <X size={26} /> : <Menu size={26} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden fixed inset-0 top-20 bg-white z-40 animate-slideDown">
+          <nav className="flex flex-col px-6 pt-6 gap-6">
+            <MobileLink href="/community" onClick={() => setOpen(false)}>
+              Community
+            </MobileLink>
+            <MobileLink href="/articles" onClick={() => setOpen(false)}>
+              Articles & Guides
+            </MobileLink>
+            <MobileLink href="/about" onClick={() => setOpen(false)}>
+              About
+            </MobileLink>
+            <MobileLink href="/migration" onClick={() => setOpen(false)}>
+              Migration Form
+            </MobileLink>
+
+            <div className="border-t border-gray-100 pt-6 flex flex-col gap-4">
+              <MobileLink href="/login" onClick={() => setOpen(false)}>
+                Log In
+              </MobileLink>
+
+              <Link
+                href="/register"
+                onClick={() => setOpen(false)}
+                className="bg-[#0d94af] text-white font-bold text-center py-3 rounded-xl"
+              >
+                Sign Up
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
+  )
+}
+
+/* Helpers */
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      className="text-sm font-semibold hover:text-[#0d94af]"
+    >
+      {children}
+    </Link>
+  )
+}
+
+function MobileLink({
+  href,
+  children,
+  onClick,
+}: {
+  href: string
+  children: React.ReactNode
+  onClick?: () => void
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="text-lg font-semibold text-[#111718]"
+    >
+      {children}
+    </Link>
   )
 }

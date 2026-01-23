@@ -18,7 +18,7 @@ interface Props {
     return (
       <div className="bg-white border border-[#e8eef2] rounded-xl overflow-hidden hover:shadow-lg transition">
         <div
-          className="aspect-[16/10] bg-cover bg-center"
+          className="aspect-16/10 bg-cover bg-center"
           style={{ backgroundImage: `url(${image})` }}
         />
   

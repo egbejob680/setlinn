@@ -1,3 +1,5 @@
+import { ArrowRight } from "lucide-react"
+
 export default function OurStorySection() {
   return (
     <section className="py-32 px-6">
@@ -58,7 +60,7 @@ export default function OurStorySection() {
               <button className="inline-flex items-center gap-2 text-[#0d94af] font-bold text-lg group">
                 Read the full manifesto
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                  arrow_forward
+                 <ArrowRight/>
                 </span>
               </button>
             </div>

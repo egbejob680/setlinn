@@ -1,10 +1,12 @@
+import { PlaneTakeoff } from "lucide-react";
+
 export default function FinalCTA() {
     return (
       <section className="py-24 px-6 bg-white text-center">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-8">
           <div className="w-20 h-20 rounded-full bg-[#0d94af]/10 flex items-center justify-center text-[#0d94af]">
             <span className="material-symbols-outlined text-4xl">
-              flight_takeoff
+            <PlaneTakeoff size={24} />
             </span>
           </div>
   
