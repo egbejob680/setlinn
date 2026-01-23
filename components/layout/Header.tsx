@@ -72,7 +72,7 @@ export default function Header() {
           />
 
           {/* Mobile Menu */}
-          <div className="md:hidden fixed inset-x-0 top-20 bottom-0 z-50 bg-[#0d94af] text-white flex flex-col px-6 pt-6 gap-6 overflow-y-auto transition-transform duration-300">
+          <div className="md:hidden fixed inset-0 top-20 z-50 bg-[#0d94af] text-white flex flex-col px-6 pt-6 pb-6 overflow-y-auto h-[calc(100vh-5rem)]">
             <MobileLink href="/community" onClick={() => setOpen(false)}>
               Community
             </MobileLink>
@@ -86,7 +86,7 @@ export default function Header() {
               Migration Form
             </MobileLink>
 
-            <div className="border-t border-white/40 pt-6 flex flex-col gap-4">
+            <div className="border-t border-white/40 pt-6 flex flex-col gap-4 mt-auto">
               <MobileLink href="/login" onClick={() => setOpen(false)}>
                 Log In
               </MobileLink>
