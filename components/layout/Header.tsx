@@ -1,23 +1,22 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState, useEffect } from "react"
-import { Menu, X, Compass } from "lucide-react"
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { Menu, X, Compass } from "lucide-react";
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "auto"
+    document.body.style.overflow = open ? "hidden" : "auto";
     return () => {
-      document.body.style.overflow = "auto"
-    }
-  }, [open])
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur border-b border-[#dbe4e6]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
-
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="flex items-center justify-center bg-[#0d94af] rounded-lg p-1.5 text-white">
@@ -73,7 +72,8 @@ export default function Header() {
           />
 
           {/* Solid Menu */}
-          <div className="md:hidden fixed inset-0 top-20 z-50 bg-white flex flex-col px-6 pt-6 gap-6 overflow-y-auto">
+          {/* Solid Menu */}
+          <div className="md:hidden fixed inset-x-0 top-20 bottom-0 z-50 bg-white flex flex-col px-6 pt-6 gap-6 overflow-y-auto">
             <MobileLink href="/community" onClick={() => setOpen(false)}>
               Community
             </MobileLink>
@@ -104,19 +104,22 @@ export default function Header() {
         </>
       )}
     </header>
-  )
+  );
 }
 
 /* ================= HELPERS ================= */
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
-    <Link
-      href={href}
-      className="text-sm font-semibold hover:text-[#0d94af]"
-    >
+    <Link href={href} className="text-sm font-semibold hover:text-[#0d94af]">
       {children}
     </Link>
-  )
+  );
 }
 
 function MobileLink({
@@ -124,9 +127,9 @@ function MobileLink({
   children,
   onClick,
 }: {
-  href: string
-  children: React.ReactNode
-  onClick?: () => void
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
 }) {
   return (
     <Link
@@ -136,5 +139,5 @@ function MobileLink({
     >
       {children}
     </Link>
-  )
+  );
 }
