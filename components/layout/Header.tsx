@@ -9,6 +9,9 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto"
+    return () => {
+      document.body.style.overflow = "auto"
+    }
   }, [open])
 
   return (
@@ -60,44 +63,53 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden fixed inset-0 top-20 bg-white z-40 animate-slideDown">
-          <nav className="flex flex-col px-6 pt-6 gap-6">
-            <MobileLink href="/community" onClick={() => setOpen(false)}>
-              Community
-            </MobileLink>
-            <MobileLink href="/articles" onClick={() => setOpen(false)}>
-              Articles & Guides
-            </MobileLink>
-            <MobileLink href="/about" onClick={() => setOpen(false)}>
-              About
-            </MobileLink>
-            <MobileLink href="/migration" onClick={() => setOpen(false)}>
-              Migration Form
-            </MobileLink>
+        <>
+          {/* Dark overlay */}
+          <div
+            className="fixed inset-0 bg-black/30 z-40"
+            onClick={() => setOpen(false)}
+          />
 
-            <div className="border-t border-gray-100 pt-6 flex flex-col gap-4">
-              <MobileLink href="/login" onClick={() => setOpen(false)}>
-                Log In
+          {/* Menu */}
+          <div className="md:hidden fixed inset-0 top-20 bg-white z-50 animate-slideDown">
+            <nav className="flex flex-col px-6 pt-6 gap-6">
+              <MobileLink href="/community" onClick={() => setOpen(false)}>
+                Community
+              </MobileLink>
+              <MobileLink href="/articles" onClick={() => setOpen(false)}>
+                Articles & Guides
+              </MobileLink>
+              <MobileLink href="/about" onClick={() => setOpen(false)}>
+                About
+              </MobileLink>
+              <MobileLink href="/migration" onClick={() => setOpen(false)}>
+                Migration Form
               </MobileLink>
 
-              <Link
-                href="/register"
-                onClick={() => setOpen(false)}
-                className="bg-[#0d94af] text-white font-bold text-center py-3 rounded-xl"
-              >
-                Sign Up
-              </Link>
-            </div>
-          </nav>
-        </div>
+              <div className="border-t border-gray-100 pt-6 flex flex-col gap-4">
+                <MobileLink href="/login" onClick={() => setOpen(false)}>
+                  Log In
+                </MobileLink>
+
+                <Link
+                  href="/register"
+                  onClick={() => setOpen(false)}
+                  className="bg-[#0d94af] text-white font-bold text-center py-3 rounded-xl"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   )
 }
 
-/* Helpers */
+/* ================= HELPERS ================= */
 
 function NavLink({
   href,
