@@ -1,9 +1,9 @@
 "use client"
 
+import { useState } from "react"
 import MiguruHeader from "./MiguruHeader"
 import MiguruMessages from "./MiguruMessages"
 import MiguruInput from "./MiguruInput"
-import { useState } from "react"
 import { MiguruMessage } from "./types"
 
 export default function MiguruChat({
@@ -28,7 +28,6 @@ export default function MiguruChat({
 
     setMessages((prev) => [...prev, userMsg])
 
-    // MOCK AI RESPONSE (replace later)
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
@@ -39,11 +38,21 @@ export default function MiguruChat({
             "Great choice! I can help with scholarships, visas, or housing.",
         },
       ])
-    }, 800)
+    }, 700)
   }
 
   return (
-    <div className="fixed bottom-28 right-8 w-90 max-h-130 bg-white rounded-3xl shadow-2xl border border-[#dbe4e6] flex flex-col z-70 animate-in fade-in slide-in-from-bottom-4">
+    <div
+      className="
+        fixed bottom-24 right-4 sm:right-8
+        w-[92vw] sm:w-[360px]
+        max-h-[75vh]
+        bg-white rounded-3xl
+        shadow-2xl border border-[#dbe4e6]
+        flex flex-col z-50
+        animate-in fade-in slide-in-from-bottom-4
+      "
+    >
       <MiguruHeader onClose={onClose} />
       <MiguruMessages messages={messages} />
       <MiguruInput onSend={sendMessage} />

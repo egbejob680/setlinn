@@ -1,3 +1,5 @@
+import { Star } from "lucide-react"
+
 export default function StarRating({ count = 5 }: { count?: number }) {
     return (
       <div className="flex text-[#0d94af]">
@@ -6,7 +8,7 @@ export default function StarRating({ count = 5 }: { count?: number }) {
             key={i}
             className="material-symbols-outlined fill-1 text-[22px]"
           >
-            star
+            <Star/>
           </span>
         ))}
       </div>

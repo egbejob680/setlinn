@@ -8,11 +8,14 @@ export default function MiguruHeader({
   return (
     <div className="flex items-center justify-between px-4 py-3 border-b border-[#dbe4e6]">
       <div>
-        <h4 className="font-bold text-[#111718]">Miguru AI</h4>
+        <h4 className="font-bold text-[#111718] text-sm sm:text-base">
+          Miguru AI
+        </h4>
         <p className="text-xs text-[#618389]">
           Your global move assistant
         </p>
       </div>
+
       <button
         onClick={onClose}
         className="p-2 rounded-lg hover:bg-black/5"

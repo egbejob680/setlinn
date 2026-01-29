@@ -24,9 +24,10 @@ export default function MiguruInput({
         placeholder="Ask Miguru..."
         className="flex-1 h-11 rounded-xl border border-[#dbe4e6] px-3 text-sm focus:border-[#0d94af] focus:ring-1 focus:ring-[#0d94af] outline-none"
       />
+
       <button
         onClick={handleSend}
-        className="size-11 rounded-xl bg-[#0d94af] text-white flex items-center justify-center"
+        className="h-11 w-11 rounded-xl bg-[#0d94af] text-white flex items-center justify-center shrink-0"
       >
         <Send className="w-4 h-4" />
       </button>

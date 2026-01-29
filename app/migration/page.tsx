@@ -35,9 +35,7 @@ export default function MigrationPage() {
               {/* Personal Info */}
               <section>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="material-icons-outlined text-[#0d94af]">
-                    person
-                  </span>
+                  
                   <h2 className="text-xl font-semibold">Personal Information</h2>
                 </div>
   
@@ -52,9 +50,7 @@ export default function MigrationPage() {
               {/* Aspirations */}
               <section>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="material-icons-outlined text-[#0d94af]">
-                    public
-                  </span>
+                  
                   <h2 className="text-xl font-semibold">Migration Aspirations</h2>
                 </div>
   
@@ -78,9 +74,7 @@ export default function MigrationPage() {
               {/* Background */}
               <section>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="material-icons-outlined text-[#0d94af]">
-                    work
-                  </span>
+                  
                   <h2 className="text-xl font-semibold">Background</h2>
                 </div>
   
