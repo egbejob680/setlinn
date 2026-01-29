@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, Compass } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -20,8 +21,8 @@ export default function Header() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex items-center justify-center bg-[#0d94af] rounded-lg p-1.5 text-white">
-            <Compass size={22} />
+          <div className="flex items-center justify-center bg-[#0d94af]/10 rounded-lg p-1.5 text-white">
+            <Image src={"/setlinn.png"} width={50} height={50} alt="setlinn"></Image>
           </div>
           <h2 className="text-[#111718] text-xl font-extrabold tracking-tight">
             Setlinn

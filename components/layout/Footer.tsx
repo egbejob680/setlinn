@@ -6,7 +6,7 @@ import {
   Send,
   Mail,
 } from "lucide-react"
-
+import Image from "next/image"
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-[#dbe4e6] py-16 px-6 lg:px-12">
@@ -18,8 +18,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-[#0d94af] rounded-lg p-2 text-white">
-                <Compass size={20} />
+              <div className="bg-[#0d94af]/10 rounded-lg p-2 text-white">
+              <Image src={"/setlinn.png"} width={50} height={50} alt="setlinn"></Image>
               </div>
               <h2 className="text-[#111718] text-lg font-extrabold tracking-tight">
                 Setlinn

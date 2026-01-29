@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function MigrationPage() {
     return (
       <main className="bg-[#f8fafc] min-h-screen pb-24">
@@ -16,9 +17,7 @@ export default function MigrationPage() {
             {/* Header */}
             <div className="text-center mb-12">
               <div className="w-16 h-16 mx-auto rounded-full bg-[#0d94af]/10 flex items-center justify-center mb-6">
-                <span className="text-[#0d94af] font-extrabold text-xl">
-                  SL
-                </span>
+              <Image src={"/setlinn.png"} width={60} height={60} alt="setlinn"></Image>
               </div>
   
               <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900">
